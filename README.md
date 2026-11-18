@@ -15,9 +15,47 @@ Boolean Functions
 <img width="575" height="65" alt="image" src="https://github.com/user-attachments/assets/04c2d90c-0b6b-4b35-b603-d0e10e1e4f00" />
 
 ## Design / RTL Program
+```module mux2to1 (
+    input  wire A,      // input line 0
+    input  wire B,      // input line 1
+    input  wire S,      // select line
+    output wire Y       // output
+);
+    assign Y = (~S & A) | (S & B);
+endmodule
+ 
+module demux1to2 (
+    input  wire D,      // data input
+    input  wire S,      // select line
+    output wire Y0,     // output line 0
+    output wire Y1      // output line 1
+);
+    assign Y0 = (~S) & D;
+    assign Y1 = S & D;
+endmodule
+
 
 ```
 ## **Testbench Program
+```module mux2to1 (
+    input  wire A,      // input line 0
+    input  wire B,      // input line 1
+    input  wire S,      // select line
+    output wire Y       // output
+);
+    assign Y = (~S & A) | (S & B);
+endmodule
+ 
+module demux1to2 (
+    input  wire D,      // data input
+    input  wire S,      // select line
+    output wire Y0,     // output line 0
+    output wire Y1      // output line 1
+);
+    assign Y0 = (~S) & D;
+    assign Y1 = S & D;
+endmodule
+```
 
 
 
@@ -83,7 +121,8 @@ The 2:1 Multiplexer and 1:2 Demultiplexer were realized using Verilog HDL:
 
 The design was compiled and simulated using Synopsys VCS, and the functionality was verified using DVE waveform analysis, matching the expected truth table.
 
-## Output
+## Output<img width="1902" height="1015" alt="Screenshot 2026-11-18 134449" src="https://github.com/user-attachments/assets/2c5db624-7dca-4fac-85c1-327f2ab59eaa" />
+
 
 
 ## Viva-Voce Questions
